@@ -6,7 +6,6 @@ import io
 import torchvision
 import torch.nn as nn
 
-
 def save_model(model: torch.nn.Module,
                target_dir: str,
                model_name: str):

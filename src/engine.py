@@ -12,7 +12,7 @@ def train_step(model: torch.nn.Module,
                loss_fn: torch.nn.Module,
                optimizer: torch.optim.Optimizer):
     # Put model in train mode
-    model.train()
+    model.train().to(device)
 
     # Setup train loss and train accuracy values
     train_loss, train_acc = 0, 0
@@ -124,6 +124,4 @@ def train(model: torch.nn.Module,
 
     plt.close()  
 
-    return results         
-
-
+    return results

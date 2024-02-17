@@ -1,6 +1,6 @@
 import os
 import torch
-import data_setup, engine, model_builder
+import data_setup, engine
 import torchvision.models as models
 from torch import nn
 from pathlib import Path
@@ -44,8 +44,8 @@ class Network(nn.Module):
         torch.cuda.manual_seed(42)
         in_features = 1792
         self.model.classifier = nn.Sequential(
-            nn.Linear(in_features, 512),nn.BatchNorm1d(512), nn.ReLU(),nn.Dropout(0.2) ,
-            nn.Linear(512, 128),nn.BatchNorm1d(128),nn.ReLU(), nn.Dropout(0.2),
+            nn.Linear(in_features, 512),nn.BatchNorm1d(512), nn.GELU(),nn.Dropout(0.1) ,
+            nn.Linear(512, 128),nn.BatchNorm1d(128),nn.GELU(), nn.Dropout(0.1),
             nn.Linear(128, 8)) 
         
 
@@ -106,6 +106,4 @@ engine.train(model=model,
 # Save the model with help from utils.py.
 save_model(model=model,
                  target_dir="models",
-                 model_name="densenet_B4_13.pth")
-
-
+                 model_name="densenet_B4_14.pth")

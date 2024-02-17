@@ -35,8 +35,8 @@ class Network(nn.Module):
         torch.cuda.manual_seed(42)
         in_features = 1792
         self.model.classifier = nn.Sequential(
-            nn.Linear(in_features, 512),nn.BatchNorm1d(512), nn.ReLU(),nn.Dropout(0.2) ,
-            nn.Linear(512, 128),nn.BatchNorm1d(128),nn.ReLU(), nn.Dropout(0.2),
+            nn.Linear(in_features, 512),nn.BatchNorm1d(512), nn.GELU(),nn.Dropout(0.1) ,
+            nn.Linear(512, 128),nn.BatchNorm1d(128),nn.GELU(), nn.Dropout(0.1),
             nn.Linear(128, 8)) 
         
 
@@ -47,9 +47,15 @@ class Network(nn.Module):
 class_labels = ['christmas_cookies', 'christmas_presents', 'christmas_tree', 'fireworks', 'penguin', 'reindeer', 'santa', 'snowman']
 
 model1 = Network()
-PATH = "models/densenet_B4_13.pth"
-model1.load_state_dict(torch.load(PATH, map_location=device))
+PATH = "models_new/efficient_net_01.pth"
+
+# state_dict = torch.load(PATH, map_location=device)
+# modified_state_dict = {key: value for key, value in state_dict.items() if 'model.features' in key}
+# model1.load_state_dict(modified_state_dict, strict=False)
+
 model1 = model1.to(device)
+model1.load_state_dict(torch.load(PATH, map_location=device))
+
 model1.eval()    
 
 
