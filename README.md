@@ -1,6 +1,5 @@
 This challenge is part of the Deep Learning course offered by University of Siegen, Germany. Our model scored 98.1% accuracy on public test set.
-
-In the final Secret data set, We got the first place and received Prize money.
+In the final Secret data set, We got the first place with a Test accuracy of 92.875 % and received Prize money.
 
 ![Alt text](image-1.png)
 
