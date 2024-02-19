@@ -7,4 +7,4 @@ The dataset consist of 8 classes consisting of Christmas Objects such as Christm
 Used various Augmentation techniques like cutmix, Mixup etc.
 Used the concept of SHAP values(concept of Explainable AI) to debug(to understand where our predictions are going wrong)
 
-Link to Challenge: https://kaggle.com/competitions/deep-learning-classification-challenge
+Link to Challenge: https://www.kaggle.com/competitions/deep-learning-classification-challenge/overview
